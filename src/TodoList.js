@@ -1,8 +1,8 @@
 
-export default function TodoList() {
+export default function TodoList({todos}) {
     return(
         <div>
-            Hello World!!! :-D
+            Hello World!!! :-D We have {todos.length} todos.
         </div>
     )
 }
