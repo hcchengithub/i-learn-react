@@ -1,12 +1,32 @@
+// import React from 'react'
+import Todo from './todo'
 
+// 改寫來觀察 map 產生的東西
 export default function TodoList({todos}) {
-    if (window.debug_flag) debugger; // 這裡是 front end  
-    return(
-        <div>
-            Hello World!!! :-D We have {todos.length} todos.<br />
-            Attribute 裡的 &#123;todos.length&#125; 可能是 ES6 的語法，這裡
-            的 &#123;todos.length&#125; 真的就是 escape string 了，那應該兩邊
-            都是 escape string 也就是 JSX 的 expression。
-        </div>
-    )
+    var components = todos.map(todo => (<Todo todo={todo} />));
+    debugger;
+    return components
 }
+
+// 原來的寫法
+// export default function TodoList({todos}) {
+//     return (
+//         todos.map(todo => {
+//             return <Todo todo={todo} />
+//         })
+//     )
+// }
+
+/*
+	Understanding the JavaScript Array.map() function
+	> dropall <js>
+	a = [1,2,3];  // a is an array  
+	b = a.map(x => x*x);  // a.map 套用 lambda to all cells of the array
+	push(a)
+	push(b)
+	</js> .s
+	      0: 1,2,3 (array)
+	      1: 1,4,9 (array)  // 結果是泡製過的新 array 
+	 OK 
+*/
+
